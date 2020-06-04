@@ -1,4 +1,4 @@
-// @import 'variables.scss';
+@import 'variables.scss';
 // @import 'resets.scss';
 // @import 'grid.scss';
 // @import 'fonts.scss';
@@ -8,4 +8,7 @@
 
 // @import 'pages/styles.scss';
 
-// @import 'components/styles.scss';
+@import 'global.scss';
+
+@import '../pages/styles.scss';
+@import '../components/styles.scss';

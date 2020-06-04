@@ -28,6 +28,8 @@ const successResponse = (response, resolve) => {
 }
 
 const errorResponse = (response, error, reject) => {
+  Cookies.remove('authorization-header-frontend')
+
   const errorData = { status: response.status, body: response.body || error }
 
   return reject(errorData)
