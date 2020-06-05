@@ -7,6 +7,7 @@ import { selectors as authSelectors } from '../../store/reducers/auth'
 
 import SideBar from '../../components/SideBar'
 import Thoughts from '../Thoughts'
+import Lists from '../Lists'
 
 function Dashboard({ }) {
     const dispatch = useDispatch()
@@ -25,7 +26,8 @@ function Dashboard({ }) {
     return (
         <div className="main-content">
             <SideBar />
-            <Thoughts />
+            {/* <Thoughts /> */}
+            <Lists />
         </div>
     );
 }

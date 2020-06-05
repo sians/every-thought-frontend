@@ -12,7 +12,7 @@ export const getListsEntities = createSelector([
   (entities) => entities
 )
 
-export const getThoughts = createSelector([
+export const getThoughtsEntities = createSelector([
   (state) => state.entities.thoughts,
 ],
   (entities) => entities

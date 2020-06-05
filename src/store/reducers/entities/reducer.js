@@ -7,18 +7,18 @@ import {
   UPDATE_COLLECTION_SUCCESS,
   CREATE_COLLECTION_SUCCESS,
 } from '../collections/actionTypes'
-// import {
-//   GET_LISTS_SUCCESS,
-//   GET_LIST_SUCCESS,
-//   CREATE_LIST_SUCCESS,
-//   UPDATE_LIST_SUCCESS,
-// } from '../lists/actionTypes'
-// import {
-//   GET_THOUGHTS_SUCCESS,    
-//   GET_THOUGHT_SUCCESS,
-//   CREATE_THOUGHT_SUCCESS,
-//   UPDATE_THOUGHT_SUCCESS,
-// } from '../thought/actionTypes'
+import {
+  GET_LISTS_SUCCESS,
+  GET_LIST_SUCCESS,
+  CREATE_LIST_SUCCESS,
+  UPDATE_LIST_SUCCESS,
+} from '../lists/actionTypes'
+import {
+  GET_THOUGHTS_SUCCESS,    
+  GET_THOUGHT_SUCCESS,
+  CREATE_THOUGHT_SUCCESS,
+  UPDATE_THOUGHT_SUCCESS,
+} from '../thoughts/actionTypes'
 
 const initialState = {
   lists: {},
@@ -66,18 +66,18 @@ const reducer = (state = initialState, action = {}) => {
       case GET_COLLECTION_SUCCESS:
       case CREATE_COLLECTION_SUCCESS:
       case UPDATE_COLLECTION_SUCCESS:
-      // case GET_LISTS_SUCCESS:
-      // case GET_LIST_SUCCESS:
-      // case CREATE_LIST_SUCCESS:
-      // case UPDATE_LIST_SUCCESS:
-      // case GET_THOUGHTS_SUCCESS:    
-      // case GET_THOUGHT_SUCCESS:
-      // case CREATE_THOUGHT_SUCCESS:
-      // case UPDATE_THOUGHT_SUCCESS:
+      case GET_LISTS_SUCCESS:
+      case GET_LIST_SUCCESS:
+      case CREATE_LIST_SUCCESS:
+      case UPDATE_LIST_SUCCESS:
+      case GET_THOUGHTS_SUCCESS:    
+      case GET_THOUGHT_SUCCESS:
+      case CREATE_THOUGHT_SUCCESS:
+      case UPDATE_THOUGHT_SUCCESS:
         const data = action.result.normalizedData
         updateEntitiesData(state, draft, 'collections', 'collection', data)
-        // updateEntitiesData(state, draft, 'lists', 'list', data)
-        // updateEntitiesData(state, draft, 'thoughts', 'thought', data)
+        updateEntitiesData(state, draft, 'lists', 'list', data)
+        updateEntitiesData(state, draft, 'thoughts', 'thought', data)
         break
 
       case actionTypes.RESET:
