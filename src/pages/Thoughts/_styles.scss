@@ -17,6 +17,9 @@
             &:nth-child(even) {
                 background-color: rgba(white, 0.3);
             }
+            &.selected  {
+                background-color: rgba($dark-grey, 0.3);
+            }
         }
     }
 }

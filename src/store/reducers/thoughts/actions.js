@@ -26,5 +26,5 @@ export const createThought = (name) => ({
   ],
   promise: (client) => client.post(
     'thoughts',
-    { data: { thought: { name } } })
+    { data: { thought: { title: 'untitled' } } })
 })

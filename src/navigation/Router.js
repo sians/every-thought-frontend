@@ -6,6 +6,8 @@ import NonAuthenticatedRoute from './NonAuthenticatedRoute'
 
 import Login from '../pages/Login'
 import Dashboard from '../pages/Dashboard'
+import Thoughts from '../pages/Thoughts'
+import Lists from '../pages/Lists'
 
 
 const Router = ({ setRoutePathName }) => {
@@ -21,7 +23,9 @@ const Router = ({ setRoutePathName }) => {
 
   return (
     <Switch location={location}>
-        <AuthenticatedRoute path="/" exact component={Dashboard} />
+        <AuthenticatedRoute path="/" exact component={Thoughts} />
+        <AuthenticatedRoute path="/dashboard" exact component={Dashboard} />
+        <AuthenticatedRoute path="/lists" exact component={Lists} />
 
         <NonAuthenticatedRoute path="/login" exact component={Login} />
 

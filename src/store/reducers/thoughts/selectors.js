@@ -16,6 +16,12 @@ export const getThoughts = createSelector(
     )
   )  
 
+  export const getThoughtsLoading = createSelector([
+    (state) => state.thoughts.thoughtsLoading
+  ],
+  (loading) => loading
+  )
+
   export const getCreateThoughtLoading = createSelector([
     (state) => state.thoughts.createThoughtLoading
   ],

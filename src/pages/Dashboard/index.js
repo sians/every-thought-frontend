@@ -25,7 +25,6 @@ function Dashboard({ }) {
 
     return (
         <div className="main-content">
-            <SideBar />
             {/* <Thoughts /> */}
             <Lists />
         </div>
