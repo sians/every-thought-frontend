@@ -17,21 +17,24 @@ function Thoughts({ }) {
     const thoughts = useSelector(thoughtsSelectors.getThoughts)
 
     const thoughtsLoading = useSelector(thoughtsSelectors.getThoughtsLoading)
-
-    console.log(thoughts[0])
     
     useEffect(() => {
         getThoughts()
     }, [])
 
     useEffect(() => {
-        setSelectedThought(thoughts[0])
+        if (selectedThought === undefined) setSelectedThought(thoughts[0])
     }, [thoughts])
 
     const handleThoughtSelect = (thought) => {
-        console.log(thought)
+        const d = document.querySelector("trix-editor")
+        d.innerHTML = thought.text.body
+
         setSelectedThought(thought)
     }
+
+    const saveThought = useCallback((text, thoughtId) =>
+        dispatch(thoughtActions.updateThought(text, thoughtId)), [dispatch])
 
     return (
         <div className="main-content">
@@ -43,7 +46,7 @@ function Thoughts({ }) {
                     <ul>
                         {
                             thoughts.map((thought) => {
-                                return <li onClick={() => handleThoughtSelect(thought)} className={`${thought===selectedThought ? 'selected' : ''}`}>{thought.title}</li>
+                                return <li onClick={() => handleThoughtSelect(thought)} className={`${selectedThought && thought.id===selectedThought.id ? 'selected' : ''}`}>{thought.title}</li>
                             })
                         }
                         <li>Reply to Niall's email</li>
@@ -54,7 +57,9 @@ function Thoughts({ }) {
 
             <div className="thought-content">
                 {!(selectedThought===undefined) ?
-                    <ThoughtEditor thought={selectedThought} />
+                    <div>
+                        <ThoughtEditor thought={selectedThought} />
+                    </div>
                     :
                     <p>loading</p>
                 }

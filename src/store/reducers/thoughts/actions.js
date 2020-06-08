@@ -28,3 +28,15 @@ export const createThought = (name) => ({
     'thoughts',
     { data: { thought: { title: 'untitled' } } })
 })
+
+export const updateThought = (text, id) => ({
+  types: [
+    actionTypes.UPDATE_THOUGHT,
+    actionTypes.UPDATE_THOUGHT_SUCCESS,
+    actionTypes.UPDATE_THOUGHT_FAIL,
+  ],
+  promise: (client)  => client.patch(
+    `thoughts/${id}`,
+    { data: { thought: {text: text}}}
+  )
+})
