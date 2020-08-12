@@ -1,14 +1,17 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
-import { selectors as authSelectors } from '../../../store/reducers/auth'
+import { actions as thoughtActions, selectors as thoughtsSelectors } from '../../../store/reducers/thoughts'
 
 import Wysiwyg from  '../../../components/Wysiwyg'
-import Button from '../../../components/Button'
 
 
 function ThoughtEditor({ thought }) {
+    const dispatch = useDispatch()
+
+    const handleSave = useCallback((text, thoughtId) =>
+        dispatch(thoughtActions.updateThought(text, thoughtId)), [dispatch])
+
 
     return (
         <div>

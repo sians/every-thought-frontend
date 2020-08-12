@@ -7,7 +7,6 @@ import "trix/dist/trix";
 
 import { actions as thoughtActions, selectors as thoughtsSelectors } from '../../store/reducers/thoughts'
 
-
 const  Wysiwyg = ({ object }) => {
     const dispatch = useDispatch()
 
@@ -26,9 +25,6 @@ const  Wysiwyg = ({ object }) => {
     useEffect(() => {
         const timer  = setTimeout(() => {
             if (textValue != lastTextValue) {
-                console.log('dif')
-                console.log(textValue)
-                console.log(object.text.body)
                 handleSave(textValue, object.id)
                 setLastTextValue(textValue)
             }
@@ -50,7 +46,6 @@ const  Wysiwyg = ({ object }) => {
                 onChange={handleChange}
                 value={textValue}
             />
-            <div onClick={() => handleSave(textValue, object.id)}>save</div>
             
         </div>
     );

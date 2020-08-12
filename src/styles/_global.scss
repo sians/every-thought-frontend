@@ -1,6 +1,7 @@
 body {
     margin: 0px;
     padding: 0px;
+    font-family: sans-serif;
 }
 
 ul {
@@ -17,6 +18,7 @@ ul {
 
 .main-content {
     display: flex;
+    width: calc(100vw - 170px);
 }
 
 a {
